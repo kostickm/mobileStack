@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		8D26089F1D77798D00C8DD53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D26089E1D77798D00C8DD53 /* AppDelegate.swift */; };
-		8D2608A11D77798D00C8DD53 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2608A01D77798D00C8DD53 /* ViewController.swift */; };
+		8D2608A11D77798D00C8DD53 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2608A01D77798D00C8DD53 /* AuthViewController.swift */; };
 		8D2608A41D77798D00C8DD53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D2608A21D77798D00C8DD53 /* Main.storyboard */; };
 		8D2608A61D77798D00C8DD53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D2608A51D77798D00C8DD53 /* Assets.xcassets */; };
 		8D2608A91D77798D00C8DD53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D2608A71D77798D00C8DD53 /* LaunchScreen.storyboard */; };
 		8D2608B41D77798D00C8DD53 /* MobileStackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2608B31D77798D00C8DD53 /* MobileStackTests.swift */; };
+		8D2608C31D777B8A00C8DD53 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2608C21D777B8A00C8DD53 /* SwiftyJSON.swift */; };
+		8D2608C51D77875000C8DD53 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2608C41D77875000C8DD53 /* ImageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,7 +30,7 @@
 /* Begin PBXFileReference section */
 		8D26089B1D77798D00C8DD53 /* MobileStack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileStack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D26089E1D77798D00C8DD53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8D2608A01D77798D00C8DD53 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8D2608A01D77798D00C8DD53 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		8D2608A31D77798D00C8DD53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8D2608A51D77798D00C8DD53 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D2608A81D77798D00C8DD53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,6 +38,8 @@
 		8D2608AF1D77798D00C8DD53 /* MobileStackTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobileStackTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D2608B31D77798D00C8DD53 /* MobileStackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileStackTests.swift; sourceTree = "<group>"; };
 		8D2608B51D77798D00C8DD53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D2608C21D777B8A00C8DD53 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		8D2608C41D77875000C8DD53 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,12 +81,14 @@
 		8D26089D1D77798D00C8DD53 /* MobileStack */ = {
 			isa = PBXGroup;
 			children = (
+				8D2608C21D777B8A00C8DD53 /* SwiftyJSON.swift */,
 				8D26089E1D77798D00C8DD53 /* AppDelegate.swift */,
-				8D2608A01D77798D00C8DD53 /* ViewController.swift */,
+				8D2608A01D77798D00C8DD53 /* AuthViewController.swift */,
 				8D2608A21D77798D00C8DD53 /* Main.storyboard */,
 				8D2608A51D77798D00C8DD53 /* Assets.xcassets */,
 				8D2608A71D77798D00C8DD53 /* LaunchScreen.storyboard */,
 				8D2608AA1D77798D00C8DD53 /* Info.plist */,
+				8D2608C41D77875000C8DD53 /* ImageViewController.swift */,
 			);
 			path = MobileStack;
 			sourceTree = "<group>";
@@ -198,7 +204,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D2608A11D77798D00C8DD53 /* ViewController.swift in Sources */,
+				8D2608C31D777B8A00C8DD53 /* SwiftyJSON.swift in Sources */,
+				8D2608A11D77798D00C8DD53 /* AuthViewController.swift in Sources */,
+				8D2608C51D77875000C8DD53 /* ImageViewController.swift in Sources */,
 				8D26089F1D77798D00C8DD53 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
