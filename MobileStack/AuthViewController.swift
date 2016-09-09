@@ -5,21 +5,25 @@ class AuthViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var authTokenField: UITextField!
     
+    public let user = Config.USERNAME
+    public let password = Config.PASSWORD
+    public let controller = Config.CONTROLLERIP
+    public let port = Config.PORT
     
     @IBAction func getAuthToken(_ sender: AnyObject) {
         // Define Request Body Parameters
-        let parameters = [
+        let parameters: [String: Any] = [
             "auth": [
                 "tenantName": "admin",
                 "passwordCredentials": [
-                    "username": "admin",
-                    "password": "<password>"
+                    "username": user,
+                    "password": password
                 ]
             ]
         ]
         
         // Create Request
-        var req = URLRequest(url: URL(string: "http://<ipAddress>:<port>/v2.0/tokens")!)
+        var req = URLRequest(url: URL(string: "http://\(controller):\(port)/v2.0/tokens")!)
         req.httpMethod = "POST"
         
         do {
