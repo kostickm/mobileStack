@@ -5,4 +5,5 @@ struct Config {
     static let PASSWORD = "password"
     static let CONTROLLERIP = "<ip_address>"
     static let PORT = "port"
+    static let GLANCEPORT = "port"
 }

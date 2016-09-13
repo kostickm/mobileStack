@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		442A77451D8844A000CB685E /* GlanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442A77441D8844A000CB685E /* GlanceViewController.swift */; };
 		8D26089F1D77798D00C8DD53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D26089E1D77798D00C8DD53 /* AppDelegate.swift */; };
 		8D2608A11D77798D00C8DD53 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2608A01D77798D00C8DD53 /* AuthViewController.swift */; };
 		8D2608A41D77798D00C8DD53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D2608A21D77798D00C8DD53 /* Main.storyboard */; };
@@ -30,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		442A77441D8844A000CB685E /* GlanceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlanceViewController.swift; sourceTree = "<group>"; };
 		8D26089B1D77798D00C8DD53 /* MobileStack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileStack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D26089E1D77798D00C8DD53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8D2608A01D77798D00C8DD53 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				8D2608C41D77875000C8DD53 /* ImageViewController.swift */,
 				8D618B8B1D834FF9009F8015 /* Config.swift */,
 				8D618B8D1D835201009F8015 /* Routes.swift */,
+				442A77441D8844A000CB685E /* GlanceViewController.swift */,
 			);
 			path = MobileStack;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				442A77451D8844A000CB685E /* GlanceViewController.swift in Sources */,
 				8D2608C31D777B8A00C8DD53 /* SwiftyJSON.swift in Sources */,
 				8D618B8E1D835201009F8015 /* Routes.swift in Sources */,
 				8D2608A11D77798D00C8DD53 /* AuthViewController.swift in Sources */,
