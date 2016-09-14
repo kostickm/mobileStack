@@ -1,10 +1,3 @@
-//
-//  GlanceViewController.swift
-//  MobileStack
-//
-//  Created by Michael Brewer on 9/13/16.
-//
-//
 import UIKit
 import Foundation
 

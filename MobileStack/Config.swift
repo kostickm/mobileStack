@@ -6,4 +6,7 @@ struct Config {
     static let CONTROLLERIP = "<ip_address>"
     static let PORT = "port"
     static let GLANCEPORT = "port"
+    static let CINDERPORT = "port"
+    static let NOVAPORT = "port"
+    static let NEUTRONPORT = "port"
 }

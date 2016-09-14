@@ -43,7 +43,6 @@ func getAuthToken(completion: @escaping (String) -> ()) {
         let keystoneToken = json["access"]["token"]["id"].object as! String
         //let serviceName = json["access"]["serviceCatalog"]["name"].object
         
-        print("\(keystoneToken)")
         //self.authTokenField.text = "\(json)"
         completion(keystoneToken)
         }.resume()
@@ -59,6 +58,9 @@ class AuthViewController: UIViewController {
             print("In button call:\(keystoneToken)")
         }
         getImages()
+        getVolumes()
+        getServers()
+        getNetworks()
     }
     
     @IBAction func reset(_ sender: AnyObject) {
