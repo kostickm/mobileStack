@@ -55,12 +55,15 @@ class AuthViewController: UIViewController {
     
     @IBAction func getAuthTokenButton(_ sender: AnyObject) {
         getAuthToken { keystoneToken in
-            print("In button call:\(keystoneToken)")
+            //print("In button call:\(keystoneToken)")
         }
-        getImages()
-        getVolumes()
-        getServers()
-        getNetworks()
+        //var imageList = globalImages
+        print("HERE")
+        //print(imageList)
+        deleteImage()
+        //getVolumes()
+        //getServers()
+        //getNetworks()
     }
     
     @IBAction func reset(_ sender: AnyObject) {

@@ -10,11 +10,15 @@ import UIKit
 
 class ImageTableViewController: UITableViewController {
     
-    var images:[Image] = imageData
-
+    var images = [Image]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        getImages { images in
+            self.images = images
+            self.tableView!.reloadData()
+        }
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -35,16 +39,15 @@ class ImageTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return images.count
+            return self.images.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ImageCell", for: indexPath)
      
-        let image = images[indexPath.row] as Image
+        let image = self.images[indexPath.row] as Image
         cell.textLabel?.text = image.name
-        cell.detailTextLabel?.text = image.os
+        cell.detailTextLabel?.text = image.createdAt
         return cell
     }
 
@@ -92,5 +95,4 @@ class ImageTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }

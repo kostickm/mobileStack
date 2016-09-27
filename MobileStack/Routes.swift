@@ -10,13 +10,13 @@ import Foundation
 // Get token - have route, need to save data
 
 
-// List VMs
+// List VMs - OK
 
-// List Images
+// List Images - OK
 
-// List Volumes
+// List Volumes - OK
 
-// List Networks
+// List Networks - OK
 
 // List Users
 
@@ -34,4 +34,4 @@ import Foundation
 
 // Delete a Volume
 
-// Delete a User
+// Delete a User - OK
