@@ -32,27 +32,21 @@ func getImages(complete: @escaping ([Image]) -> ()) {
             imageList.append(imageInfo)
         }
         
-        
         //let imageData = [
         //    Image(name:"Tiny", os:"Ubuntu 14.04"),
         //    Image(name:"Medium", os:"Ubuntu 16.04"),
         //    Image(name:"Large", os:"RHEL 7") ]
-        
-        print(json)
-        print("LIST BELOW")
-        print(imageList)
         //globalImages = imageList
         //self.authTokenField.text = "\(json)"
         complete(imageList)
         }.resume()
     }
 }
-//imageID: String
 
-func deleteImage() {
+func deleteImage(imageID: String) {
     getAuthToken { keystoneToken in
         // Create Request
-        var req = URLRequest(url: URL(string: "http://\(controller):\(glanceport)/v2/images/")!)
+        var req = URLRequest(url: URL(string: "http://\(controller):\(glanceport)/v2/images/\(imageID)")!)
         req.httpMethod = "GET"
         
         req.allHTTPHeaderFields = ["Content-Type": "application/json", "X-Auth-Token": "\(keystoneToken)"]
@@ -63,16 +57,15 @@ func deleteImage() {
         
         // Perform Request
         session.dataTask(with: req) {result, res, err in
-            guard let result = result else {
+            guard result != nil else {
                 print("No result")
                 return
             }
             
             // Convert results to a JSON object
-            let json = JSON(data: result)
+            //let json = JSON(data: result!)
+            //print(json)
             
-            //print(json["images"][0])
-            //self.authTokenField.text = "\(json)"
             }.resume()
     }
 }

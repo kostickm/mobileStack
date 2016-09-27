@@ -55,23 +55,33 @@ class AuthViewController: UIViewController {
     
     @IBAction func getAuthTokenButton(_ sender: AnyObject) {
         getAuthToken { keystoneToken in
-            //print("In button call:\(keystoneToken)")
+
+            DispatchQueue.main.async(execute: { () -> Void in
+                self.authTokenField.text = keystoneToken
+            })
         }
+        
         //var imageList = globalImages
-        print("HERE")
         //print(imageList)
-        deleteImage()
+        //deleteImage()
         //getVolumes()
         //getServers()
         //getNetworks()
     }
     
     @IBAction func reset(_ sender: AnyObject) {
-        authTokenField.text = ""
+        self.authTokenField.text = ""
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getAuthToken { keystoneToken in
+            
+            DispatchQueue.main.async(execute: { () -> Void in
+                self.authTokenField.text = keystoneToken
+            })
+        }
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 
