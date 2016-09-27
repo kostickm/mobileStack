@@ -30,8 +30,16 @@ import Foundation
 
 // Delete a VM
 
-// Delete an Image
+// Delete an Image - OK
 
 // Delete a Volume
 
-// Delete a User - OK
+// Delete a User
+
+// Server Start
+
+// Server Stop
+
+// Server Restart
+
+// Server Status ???

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		442A77451D8844A000CB685E /* GlanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442A77441D8844A000CB685E /* GlanceViewController.swift */; };
+		4446C74F1D9B193B00BDFD4D /* ServerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4446C74E1D9B193B00BDFD4D /* ServerTableViewController.swift */; };
+		4446C7511D9B19AE00BDFD4D /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4446C7501D9B19AE00BDFD4D /* Server.swift */; };
 		44B04AB21D89CA9F00A6AFD7 /* CinderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B04AB11D89CA9F00A6AFD7 /* CinderViewController.swift */; };
 		44B04AB41D89D96C00A6AFD7 /* NovaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B04AB31D89D96C00A6AFD7 /* NovaViewController.swift */; };
 		44B04AB61D89DC9500A6AFD7 /* NeutronViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B04AB51D89DC9500A6AFD7 /* NeutronViewController.swift */; };
@@ -37,6 +39,8 @@
 
 /* Begin PBXFileReference section */
 		442A77441D8844A000CB685E /* GlanceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlanceViewController.swift; sourceTree = "<group>"; };
+		4446C74E1D9B193B00BDFD4D /* ServerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerTableViewController.swift; sourceTree = "<group>"; };
+		4446C7501D9B19AE00BDFD4D /* Server.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
 		44B04AB11D89CA9F00A6AFD7 /* CinderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CinderViewController.swift; sourceTree = "<group>"; };
 		44B04AB31D89D96C00A6AFD7 /* NovaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NovaViewController.swift; sourceTree = "<group>"; };
 		44B04AB51D89DC9500A6AFD7 /* NeutronViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeutronViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +106,7 @@
 				8D26089E1D77798D00C8DD53 /* AppDelegate.swift */,
 				8D2608A01D77798D00C8DD53 /* AuthViewController.swift */,
 				8D2608A21D77798D00C8DD53 /* Main.storyboard */,
+				4446C74E1D9B193B00BDFD4D /* ServerTableViewController.swift */,
 				8D2608A51D77798D00C8DD53 /* Assets.xcassets */,
 				8D2608A71D77798D00C8DD53 /* LaunchScreen.storyboard */,
 				8D2608AA1D77798D00C8DD53 /* Info.plist */,
@@ -112,6 +117,7 @@
 				44B04AB31D89D96C00A6AFD7 /* NovaViewController.swift */,
 				44B04AB51D89DC9500A6AFD7 /* NeutronViewController.swift */,
 				8DE3D2ED1D9328BD001CC5E3 /* Image.swift */,
+				4446C7501D9B19AE00BDFD4D /* Server.swift */,
 				8DE3D2F11D93381A001CC5E3 /* SampleData.swift */,
 			);
 			path = MobileStack;
@@ -228,11 +234,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4446C7511D9B19AE00BDFD4D /* Server.swift in Sources */,
 				442A77451D8844A000CB685E /* GlanceViewController.swift in Sources */,
 				8DE3D2EE1D9328BD001CC5E3 /* Image.swift in Sources */,
 				44B04AB21D89CA9F00A6AFD7 /* CinderViewController.swift in Sources */,
 				8D2608C31D777B8A00C8DD53 /* SwiftyJSON.swift in Sources */,
 				8D618B8E1D835201009F8015 /* Routes.swift in Sources */,
+				4446C74F1D9B193B00BDFD4D /* ServerTableViewController.swift in Sources */,
 				44B04AB61D89DC9500A6AFD7 /* NeutronViewController.swift in Sources */,
 				8D2608A11D77798D00C8DD53 /* AuthViewController.swift in Sources */,
 				8DE3D2F21D93381A001CC5E3 /* SampleData.swift in Sources */,
