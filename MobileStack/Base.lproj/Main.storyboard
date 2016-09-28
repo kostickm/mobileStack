@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="RDn-fR-Cc9">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="RDn-fR-Cc9">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -20,18 +20,18 @@
                                 <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="02Q-UO-nDe" id="n4e-gs-wuj">
-                                    <frame key="frameInset" width="342" height="43.5"/>
+                                    <frame key="frameInset" width="342" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VgB-iu-HiK">
-                                            <frame key="frameInset" minX="15" minY="5" width="33.5" height="20.5"/>
+                                            <frame key="frameInset" minX="15" minY="4" width="34" height="21"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9y1-Op-EmB">
-                                            <frame key="frameInset" minX="15" minY="25.5" width="44" height="14.5"/>
+                                            <frame key="frameInset" minX="15" minY="25" width="44" height="15"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
@@ -209,11 +209,100 @@
                             <outlet property="delegate" destination="yQ2-j6-NsL" id="xpg-bt-7yE"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Servers" id="brH-nt-LJB"/>
+                    <navigationItem key="navigationItem" title="Servers" id="brH-nt-LJB">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="hyH-uA-glN">
+                            <connections>
+                                <segue destination="cFo-XK-nH3" kind="show" identifier="CreateServer" id="LUd-sQ-HpB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jvF-if-RL1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1366" y="64"/>
+        </scene>
+        <!--Create Server-->
+        <scene sceneID="1M9-5W-IlH">
+            <objects>
+                <viewController id="chs-Vt-2pZ" customClass="ServerViewController" customModule="MobileStack" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pYq-fa-PRY"/>
+                        <viewControllerLayoutGuide type="bottom" id="bi1-jf-XeM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GAl-wR-iyk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Sym-UX-XPk">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Server Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pbv-RO-8ry">
+                                        <frame key="frameInset" width="302" height="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JBo-Ql-Rel">
+                                        <frame key="frameInset" minY="24" width="302" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Image:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bWC-Id-i6P">
+                                        <frame key="frameInset" minY="58" width="302" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <pickerView contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rrA-0j-SYj">
+                                        <frame key="frameInset" minY="83" height="216"/>
+                                    </pickerView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Flavor:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Q7-1t-W4c">
+                                        <frame key="frameInset" minY="303" width="302" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <pickerView contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p5S-he-Fe9">
+                                        <frame key="frameInset" minY="328" height="216"/>
+                                    </pickerView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Sym-UX-XPk" secondAttribute="trailing" constant="20" id="E69-Ln-nDq"/>
+                            <constraint firstItem="Sym-UX-XPk" firstAttribute="centerX" secondItem="GAl-wR-iyk" secondAttribute="centerX" id="UoW-vi-AAb"/>
+                            <constraint firstItem="bi1-jf-XeM" firstAttribute="top" secondItem="Sym-UX-XPk" secondAttribute="bottom" constant="2" id="b13-Wr-DgT"/>
+                            <constraint firstItem="Sym-UX-XPk" firstAttribute="top" secondItem="pYq-fa-PRY" secondAttribute="bottom" constant="8" symbolic="YES" id="cO5-r4-yUH"/>
+                            <constraint firstItem="Sym-UX-XPk" firstAttribute="leading" secondItem="GAl-wR-iyk" secondAttribute="leadingMargin" constant="20" id="lAA-7f-N3N"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Create Server" id="cBn-fN-r3M">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="HVk-z4-qvs">
+                            <connections>
+                                <action selector="cancelServerButton:" destination="chs-Vt-2pZ" id="oiJ-Sb-bd5"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="HjC-oz-P7n">
+                            <connections>
+                                <segue destination="6a5-nN-gAd" kind="unwind" unwindAction="unwindToServerListWithSender:" id="IVQ-A2-oh0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="flavorLabel" destination="6Q7-1t-W4c" id="3Ed-p3-crf"/>
+                        <outlet property="flavorPickerView" destination="p5S-he-Fe9" id="0JP-qb-yxr"/>
+                        <outlet property="imageLabel" destination="bWC-Id-i6P" id="n15-ah-XkP"/>
+                        <outlet property="imagePickerView" destination="rrA-0j-SYj" id="K7I-yG-hEj"/>
+                        <outlet property="saveServerButton" destination="HjC-oz-P7n" id="0rh-8i-CRY"/>
+                        <outlet property="serverNameLabel" destination="Pbv-RO-8ry" id="aUf-Xu-zKW"/>
+                        <outlet property="serverNameTextField" destination="JBo-Ql-Rel" id="AeJ-dw-Tj4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4fu-O2-2TR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="6a5-nN-gAd" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2900" y="62.518740629685162"/>
         </scene>
         <!--Servers-->
         <scene sceneID="xfG-gR-4sd">
@@ -241,7 +330,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="bog-VV-cAF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -252,11 +340,28 @@
             </objects>
             <point key="canvasLocation" x="-546" y="824"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Aal-TJ-PVP">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cFo-XK-nH3" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VXY-iD-Fyc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="chs-Vt-2pZ" kind="relationship" relationship="rootViewController" id="Swq-av-dGz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NzS-Ta-wkY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2148" y="63.418290854572717"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Camera" width="14" height="14"/>
         <image name="Home" width="18" height="18"/>
         <image name="Lock" width="11" height="13"/>
     </resources>
-    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>

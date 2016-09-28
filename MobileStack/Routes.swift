@@ -28,7 +28,7 @@ import Foundation
 // Create a User ???
 
 
-// Delete a VM
+// Delete a VM - OK
 
 // Delete an Image - OK
 
