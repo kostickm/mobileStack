@@ -39,7 +39,7 @@ func deleteServer(serverID: String) {
     getAuthToken { keystoneToken in
         // Create Request
         var req = URLRequest(url: URL(string: "http://\(controller):\(novaport)/v2.1/servers/\(serverID)")!)
-        req.httpMethod = "GET"
+        req.httpMethod = "DELETE"
         
         req.allHTTPHeaderFields = ["Content-Type": "application/json", "X-Auth-Token": "\(keystoneToken)"]
         
@@ -62,20 +62,20 @@ func deleteServer(serverID: String) {
     }
 }
 
-/*
-func createServer(complete: @escaping ([Server]) -> ()) {
+func createServer(name: String, imageId: String, flavorId: String) {
     getAuthToken { keystoneToken in
-
-        let parameters = ["server": [
-                "name": serverName,
-                "imageRef": image,
-                "flavorRef": flavor
+        
+        let parameters:[String: Any] = ["server": [
+                "name": name,
+                "imageRef": imageId,
+                "flavorRef": flavorId,
+                "networks": [["uuid": "c1e00b30-fa2e-4aec-80ea-7c903f1c6717"]]
             ]
         ]
         
         // Create Request
         var novaReq = URLRequest(url: URL(string: "http://\(controller):\(novaport)/v2.1/servers")!)
-        novaReq.httpMethod = "GET"
+        novaReq.httpMethod = "POST"
         
         if JSONSerialization.isValidJSONObject(parameters) == false {
             print("Invalid JSON")
@@ -100,21 +100,13 @@ func createServer(complete: @escaping ([Server]) -> ()) {
             }
             
             // Convert results to a JSON object
-            let json = JSON(data: result)
+            //let json = JSON(data: result)
             
-            var serverList = [Server]()
-            
-            for (_, item) in json["servers"] {
-                let serverInfo = Server(name: item["name"].string!, id: item["id"].string!)
-                serverList.append(serverInfo)
-            }
-            
-            complete(serverList)
             }.resume()
     }
 }
-*/
-func getFlavors() {
+
+func getFlavors(complete: @escaping ([Flavor]) -> ()) {
     getAuthToken { keystoneToken in
         // Create Request
         var novaReq = URLRequest(url: URL(string: "http://\(controller):\(novaport)/v2.1/flavors")!)
@@ -133,16 +125,15 @@ func getFlavors() {
             
             // Convert results to a JSON object
             let json = JSON(data: result)
-            print(json)
-            /*
+            
             var flavorList = [Flavor]()
             
             for (_, item) in json["flavors"] {
-                let serverInfo = Server(name: item["name"].string!, id: item["id"].string!)
-                serverList.append(serverInfo)
+                let serverInfo = Flavor(name: item["name"].string!, id: item["id"].string!)
+                flavorList.append(serverInfo)
             }
-            */
-            //complete(flavorList)
+            
+            complete(flavorList)
             }.resume()
     }
 }

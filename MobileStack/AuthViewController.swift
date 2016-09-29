@@ -61,12 +61,15 @@ class AuthViewController: UIViewController {
             })
         }
         
+        getFlavors { flavor in
+            
+        }
         //var imageList = globalImages
         //print(imageList)
         //deleteImage()
         //getVolumes()
         //getServers()
-        //getNetworks()
+        getNetworks()
     }
     
     @IBAction func reset(_ sender: AnyObject) {

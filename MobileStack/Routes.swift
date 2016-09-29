@@ -21,7 +21,7 @@ import Foundation
 // List Users
 
 
-// Create a VM
+// Create a VM - OK
 
 // Create a Volume
 
@@ -30,11 +30,12 @@ import Foundation
 
 // Delete a VM - OK
 
-// Delete an Image - OK
+// Delete an Image - OK or list details
 
 // Delete a Volume
 
 // Delete a User
+
 
 // Server Start
 

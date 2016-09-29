@@ -12,6 +12,9 @@ class ServerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
 
     var server: Server?
     var images = [Image]()
+    var flavors = [Flavor]()
+    var imageId:String = ""
+    var flavorId:String = ""
     
     @IBOutlet weak var saveServerButton: UIBarButtonItem!
     @IBAction func cancelServerButton(_ sender: UIBarButtonItem) {
@@ -37,11 +40,21 @@ class ServerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         getImages { images in
             self.images = images
             DispatchQueue.main.async(execute: { () -> Void in
-
+                self.imageId = images[0].id!
                 self.imagePickerView.delegate = self
                 self.imagePickerView.dataSource = self
             })
         }
+        
+        getFlavors { flavors in
+            self.flavors = flavors
+            DispatchQueue.main.async(execute: { () -> Void in
+                self.flavorId = flavors[0].id!
+                self.flavorPickerView.delegate = self
+                self.flavorPickerView.dataSource = self
+            })
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -61,7 +74,7 @@ class ServerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         if pickerView == imagePickerView {
             count = images.count
         } else if pickerView == flavorPickerView{
-            //return flavors.count
+            return flavors.count
         }
         
         return count
@@ -77,7 +90,7 @@ class ServerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             name = images[row].name!
             print("IN NAME IMAGES")
         } else if pickerView == flavorPickerView{
-            //return flavors[row].name
+            return flavors[row].name
         }
         
         return name
@@ -98,7 +111,7 @@ class ServerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         if pickerView == imagePickerView {
             pickerLabel?.text = images[row].name
         } else if pickerView == flavorPickerView{
-            //pickerLabel?.text = flavors[row].name
+            pickerLabel?.text = flavors[row].name
         }
         
         return pickerLabel!;
@@ -109,6 +122,11 @@ class ServerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         // This method is triggered whenever the user makes a change to the picker selection.
         // The parameter named row and component represents what was selected.
+        if pickerView == imagePickerView {
+            self.imageId = images[row].id!
+        } else if pickerView == flavorPickerView{
+            self.flavorId = flavors[row].id!
+        }
         
     }
 
@@ -117,10 +135,9 @@ class ServerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if saveServerButton === sender as AnyObject? {
             let name = serverNameTextField.text ?? ""
-            let id = ""
             
             // Set the server to be passed to ServerTableViewController after the unwind segue.
-            server = Server(name: name, id: id)
+            createServer(name: name, imageId: imageId, flavorId: flavorId)
         }
     }
 }
