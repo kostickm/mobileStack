@@ -25,6 +25,7 @@
 		8D618B8C1D834FF9009F8015 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D618B8B1D834FF9009F8015 /* Config.swift */; };
 		8D618B8E1D835201009F8015 /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D618B8D1D835201009F8015 /* Routes.swift */; };
 		8DB91A731D9DBC3F00EAD143 /* Flavor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB91A721D9DBC3F00EAD143 /* Flavor.swift */; };
+		8DDA6E421DA460C800E8BD5C /* ServerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDA6E411DA460C800E8BD5C /* ServerTableViewCell.swift */; };
 		8DE3D2EE1D9328BD001CC5E3 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE3D2ED1D9328BD001CC5E3 /* Image.swift */; };
 		8DE3D2F01D93375B001CC5E3 /* ImageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE3D2EF1D93375B001CC5E3 /* ImageTableViewController.swift */; };
 		8DE3D2F21D93381A001CC5E3 /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE3D2F11D93381A001CC5E3 /* SampleData.swift */; };
@@ -63,6 +64,7 @@
 		8D618B8B1D834FF9009F8015 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		8D618B8D1D835201009F8015 /* Routes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Routes.swift; sourceTree = "<group>"; };
 		8DB91A721D9DBC3F00EAD143 /* Flavor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flavor.swift; sourceTree = "<group>"; };
+		8DDA6E411DA460C800E8BD5C /* ServerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerTableViewCell.swift; sourceTree = "<group>"; };
 		8DE3D2ED1D9328BD001CC5E3 /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		8DE3D2EF1D93375B001CC5E3 /* ImageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTableViewController.swift; sourceTree = "<group>"; };
 		8DE3D2F11D93381A001CC5E3 /* SampleData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				8D2608A01D77798D00C8DD53 /* AuthViewController.swift */,
 				8D428B321D9C60FB0072BE3D /* ServerViewController.swift */,
 				8D2608A21D77798D00C8DD53 /* Main.storyboard */,
+				8DDA6E411DA460C800E8BD5C /* ServerTableViewCell.swift */,
 				4446C74E1D9B193B00BDFD4D /* ServerTableViewController.swift */,
 				8D2608A51D77798D00C8DD53 /* Assets.xcassets */,
 				8D2608A71D77798D00C8DD53 /* LaunchScreen.storyboard */,
@@ -253,6 +256,7 @@
 				8D2608C31D777B8A00C8DD53 /* SwiftyJSON.swift in Sources */,
 				8D618B8E1D835201009F8015 /* Routes.swift in Sources */,
 				4446C74F1D9B193B00BDFD4D /* ServerTableViewController.swift in Sources */,
+				8DDA6E421DA460C800E8BD5C /* ServerTableViewCell.swift in Sources */,
 				44B04AB61D89DC9500A6AFD7 /* NeutronViewController.swift in Sources */,
 				8D2608A11D77798D00C8DD53 /* AuthViewController.swift in Sources */,
 				8DE3D2F21D93381A001CC5E3 /* SampleData.swift in Sources */,

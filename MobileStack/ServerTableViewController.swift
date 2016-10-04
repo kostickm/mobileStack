@@ -56,11 +56,22 @@ class ServerTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ServerCell", for: indexPath)
+        let cellIdentifier = "ServerTableViewCell"
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ServerTableViewCell
         
         let server = self.servers[indexPath.row] as Server
-        cell.textLabel?.text = server.name
-        cell.imageView?.backgroundColor = UIColor.red
+        cell.serverNameLabel.text = server.name
+        cell.serverIdLabel.text = server.id
+        //cell.serverStatusImage.backgroundColor = UIColor.blue
+        switch server.status! {
+            case "ACTIVE":
+                cell.serverStatusImage.image = #imageLiteral(resourceName: "GreenCheckmark")
+            case "SHUTOFF":
+                cell.serverStatusImage.image = #imageLiteral(resourceName: "RedCircle")
+        default:
+            cell.serverStatusImage.image = #imageLiteral(resourceName: "GreenCheckmark")
+        }
+        
         return cell
     }
     
