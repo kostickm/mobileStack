@@ -7,7 +7,7 @@ public let tenantId = Config.TENANTID
 func getServers(complete: @escaping ([Server]) -> ()) {
     getAuthToken { keystoneToken in
         // Create Request
-        var novaReq = URLRequest(url: URL(string: "http://\(controller):\(novaport)/v2.1/servers")!)
+        var novaReq = URLRequest(url: URL(string: "http://\(controller):\(novaport)/v2.1/servers/detail")!)
         novaReq.httpMethod = "GET"
         
         novaReq.allHTTPHeaderFields = ["Content-Type": "application/json", "X-Auth-Token": "\(keystoneToken)"]
@@ -23,11 +23,11 @@ func getServers(complete: @escaping ([Server]) -> ()) {
             
             // Convert results to a JSON object
             let json = JSON(data: result)
-            
+
             var serverList = [Server]()
             
             for (_, item) in json["servers"] {
-                let serverInfo = Server(name: item["name"].string!, id: item["id"].string!)
+                let serverInfo = Server(name: item["name"].string!, id: item["id"].string!, status: item["status"].string!)
                 serverList.append(serverInfo)
             }
 
@@ -95,7 +95,7 @@ func createServer(name: String, imageId: String, flavorId: String) {
         
         // Perform Request
         session.dataTask(with: novaReq) {result, res, err in
-            guard let result = result else {
+            guard result != nil else {
                 print("No result")
                 return
             }

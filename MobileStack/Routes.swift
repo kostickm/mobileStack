@@ -14,9 +14,9 @@ import Foundation
 
 // List Images - OK
 
-// List Volumes - OK
+// List Volumes - OK not shown
 
-// List Networks - OK
+// List Networks - OK not shown
 
 // List Users
 
@@ -37,10 +37,10 @@ import Foundation
 // Delete a User
 
 
-// Server Start
+// Server Start - OK
 
-// Server Stop
+// Server Stop - OK
 
-// Server Restart
+// Server Restart - OK
 
-// Server Status ???
+// Server Status - OK

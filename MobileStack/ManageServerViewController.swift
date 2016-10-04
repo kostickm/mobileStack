@@ -11,20 +11,45 @@ import UIKit
 class ManageServerViewController: UIViewController {
     var serverName = ""
     var serverId = ""
+    var serverStatus = ""
     
-    @IBOutlet weak var labelTest: UILabel!
-    @IBOutlet weak var otherText: UILabel!
+    @IBOutlet weak var labelTitle: UILabel!
+    @IBOutlet weak var labelId: UILabel!
+    @IBOutlet weak var statusLabel: UILabel!
+    
+    
     @IBAction func StartServer(_ sender: AnyObject) {
-        print(self.serverName)
-        print(self.serverId)
+        startServer(serverId: self.serverId)
+        // create the alert
+        let alert = UIAlertController(title: "\(self.serverName)", message: "Starting Server...", preferredStyle: UIAlertControllerStyle.alert)
+        
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
     }
     @IBAction func StopServer(_ sender: AnyObject) {
-        print(self.serverName)
-        print(self.serverId)
+        stopServer(serverId: self.serverId)
+        // create the alert
+        let alert = UIAlertController(title: "\(self.serverName)", message: "Stopping Server...", preferredStyle: UIAlertControllerStyle.alert)
+        
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
     }
     @IBAction func RestartServer(_ sender: AnyObject) {
-        print(self.serverName)
-        print(self.serverId)
+        rebootServer(serverId: self.serverId)
+        // create the alert
+        let alert = UIAlertController(title: "\(self.serverName)", message: "Rebooting Server...", preferredStyle: UIAlertControllerStyle.alert)
+        
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
     }
     
 
@@ -37,8 +62,9 @@ class ManageServerViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.labelTest.text = "\(serverName)"
-        self.otherText.text = "\(serverId)"
+        self.labelTitle.text = "\(serverName)"
+        self.labelId.text = "\(serverId)"
+        self.statusLabel.text = "\(serverStatus)"
     }
 
     override func didReceiveMemoryWarning() {

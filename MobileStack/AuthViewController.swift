@@ -68,8 +68,10 @@ class AuthViewController: UIViewController {
         //print(imageList)
         //deleteImage()
         //getVolumes()
-        //getServers()
-        getNetworks()
+        getServers { servers in
+            print(servers)
+        }
+        //getNetworks()
     }
     
     @IBAction func reset(_ sender: AnyObject) {

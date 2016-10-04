@@ -26,6 +26,17 @@ class ServerTableViewController: UITableViewController {
                 self.tableView.reloadData()
             })
         }
+        self.refreshControl?.addTarget(self, action: #selector(ServerTableViewController.handleRefresh(_:)), for: UIControlEvents.valueChanged)
+    }
+    
+    func handleRefresh(_ refreshControl: UIRefreshControl) {
+        getServers { servers in
+            self.servers = servers
+            DispatchQueue.main.async(execute: { () -> Void in
+                self.tableView.reloadData()
+            })
+        }
+        refreshControl.endRefreshing()
     }
     
     override func didReceiveMemoryWarning() {
@@ -49,7 +60,7 @@ class ServerTableViewController: UITableViewController {
         
         let server = self.servers[indexPath.row] as Server
         cell.textLabel?.text = server.name
-        cell.detailTextLabel?.text = server.id
+        cell.imageView?.backgroundColor = UIColor.red
         return cell
     }
     
@@ -97,6 +108,7 @@ class ServerTableViewController: UITableViewController {
                let indexPath = self.tableView.indexPathForSelectedRow {
                 destinationVC.serverName = servers[indexPath.row].name!
                 destinationVC.serverId = servers[indexPath.row].id!
+                destinationVC.serverStatus = servers[indexPath.row].status!
             }
         }
      }
