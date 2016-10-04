@@ -6,7 +6,7 @@ public let cinderport = Config.CINDERPORT
 func getVolumes() {
     getAuthToken { keystoneToken in
         // Create Request
-        var cinderReq = URLRequest(url: URL(string: "http://\(controller):\(cinderport)/v2/8319952f7d374fd3b15ec9964a8384f8/volumes")!)
+        var cinderReq = URLRequest(url: URL(string: "http://\(controller):\(cinderport)/v2/\(tenantId)/volumes")!)
         cinderReq.httpMethod = "GET"
         
         cinderReq.allHTTPHeaderFields = ["Content-Type": "application/json", "X-Auth-Token": "\(keystoneToken)"]

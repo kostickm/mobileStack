@@ -2,6 +2,7 @@ import UIKit
 import Foundation
 
 public let novaport = Config.NOVAPORT
+public let tenantId = Config.TENANTID
 
 func getServers(complete: @escaping ([Server]) -> ()) {
     getAuthToken { keystoneToken in
@@ -134,6 +135,123 @@ func getFlavors(complete: @escaping ([Flavor]) -> ()) {
             }
             
             complete(flavorList)
+            }.resume()
+    }
+}
+
+func rebootServer(serverId: String) {
+    getAuthToken { keystoneToken in
+        
+        let parameters:[String: Any] = ["reboot": [
+            "type": "HARD"
+            ]
+        ]
+        
+        // Create Request
+        var novaReq = URLRequest(url: URL(string: "http://\(controller):\(novaport)/v2.1/\(tenantId)/servers/\(serverId)/action")!)
+        novaReq.httpMethod = "POST"
+        
+        if JSONSerialization.isValidJSONObject(parameters) == false {
+            print("Invalid JSON")
+        }
+        
+        do {
+            novaReq.httpBody = try JSONSerialization.data(withJSONObject: parameters,
+                                                          options: JSONSerialization.WritingOptions())
+        } catch {
+            print("Could not create JSON body")
+        }
+        
+        novaReq.allHTTPHeaderFields = ["Content-Type": "application/json", "X-Auth-Token": "\(keystoneToken)"]
+        
+        let session = URLSession.shared
+        
+        // Perform Request
+        session.dataTask(with: novaReq) {result, res, err in
+            guard result != nil else {
+                print("No result")
+                return
+            }
+            
+            // Convert results to a JSON object
+            //let json = JSON(data: result)
+            
+            }.resume()
+    }
+}
+
+func startServer(serverId: String) {
+    getAuthToken { keystoneToken in
+        
+        let parameters:[String: Any] = [ "os-start": "null" ]
+        
+        // Create Request
+        var novaReq = URLRequest(url: URL(string: "http://\(controller):\(novaport)/v2.1/\(tenantId)/servers/\(serverId)/action")!)
+        novaReq.httpMethod = "POST"
+        
+        if JSONSerialization.isValidJSONObject(parameters) == false {
+            print("Invalid JSON")
+        }
+        
+        do {
+            novaReq.httpBody = try JSONSerialization.data(withJSONObject: parameters,
+                                                          options: JSONSerialization.WritingOptions())
+        } catch {
+            print("Could not create JSON body")
+        }
+        
+        novaReq.allHTTPHeaderFields = ["Content-Type": "application/json", "X-Auth-Token": "\(keystoneToken)"]
+        
+        let session = URLSession.shared
+        
+        // Perform Request
+        session.dataTask(with: novaReq) {result, res, err in
+            guard result != nil else {
+                print("No result")
+                return
+            }
+            
+            // Convert results to a JSON object
+            //let json = JSON(data: result)
+            
+            }.resume()
+    }
+}
+
+func stopServer(serverId: String) {
+    getAuthToken { keystoneToken in
+        
+        let parameters:[String: Any] = [ "os-stop": "null" ]
+        
+        // Create Request
+        var novaReq = URLRequest(url: URL(string: "http://\(controller):\(novaport)/v2.1/\(tenantId)/servers/\(serverId)/action")!)
+        novaReq.httpMethod = "POST"
+        
+        if JSONSerialization.isValidJSONObject(parameters) == false {
+            print("Invalid JSON")
+        }
+        
+        do {
+            novaReq.httpBody = try JSONSerialization.data(withJSONObject: parameters,
+                                                          options: JSONSerialization.WritingOptions())
+        } catch {
+            print("Could not create JSON body")
+        }
+        
+        novaReq.allHTTPHeaderFields = ["Content-Type": "application/json", "X-Auth-Token": "\(keystoneToken)"]
+        
+        let session = URLSession.shared
+        
+        // Perform Request
+        session.dataTask(with: novaReq) {result, res, err in
+            guard result != nil else {
+                print("No result")
+                return
+            }
+            
+            // Convert results to a JSON object
+            //let json = JSON(data: result)
+            
             }.resume()
     }
 }

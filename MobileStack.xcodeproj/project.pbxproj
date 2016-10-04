@@ -13,6 +13,7 @@
 		44B04AB21D89CA9F00A6AFD7 /* CinderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B04AB11D89CA9F00A6AFD7 /* CinderViewController.swift */; };
 		44B04AB41D89D96C00A6AFD7 /* NovaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B04AB31D89D96C00A6AFD7 /* NovaViewController.swift */; };
 		44B04AB61D89DC9500A6AFD7 /* NeutronViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B04AB51D89DC9500A6AFD7 /* NeutronViewController.swift */; };
+		44FD3C7F1DA40FB8008DEB8B /* ManageServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FD3C7E1DA40FB8008DEB8B /* ManageServerViewController.swift */; };
 		8D26089F1D77798D00C8DD53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D26089E1D77798D00C8DD53 /* AppDelegate.swift */; };
 		8D2608A11D77798D00C8DD53 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2608A01D77798D00C8DD53 /* AuthViewController.swift */; };
 		8D2608A41D77798D00C8DD53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D2608A21D77798D00C8DD53 /* Main.storyboard */; };
@@ -46,6 +47,7 @@
 		44B04AB11D89CA9F00A6AFD7 /* CinderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CinderViewController.swift; sourceTree = "<group>"; };
 		44B04AB31D89D96C00A6AFD7 /* NovaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NovaViewController.swift; sourceTree = "<group>"; };
 		44B04AB51D89DC9500A6AFD7 /* NeutronViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeutronViewController.swift; sourceTree = "<group>"; };
+		44FD3C7E1DA40FB8008DEB8B /* ManageServerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageServerViewController.swift; sourceTree = "<group>"; };
 		8D26089B1D77798D00C8DD53 /* MobileStack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileStack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D26089E1D77798D00C8DD53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8D2608A01D77798D00C8DD53 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				4446C7501D9B19AE00BDFD4D /* Server.swift */,
 				8DB91A721D9DBC3F00EAD143 /* Flavor.swift */,
 				8DE3D2F11D93381A001CC5E3 /* SampleData.swift */,
+				44FD3C7E1DA40FB8008DEB8B /* ManageServerViewController.swift */,
 			);
 			path = MobileStack;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 				8DB91A731D9DBC3F00EAD143 /* Flavor.swift in Sources */,
 				442A77451D8844A000CB685E /* GlanceViewController.swift in Sources */,
 				8DE3D2EE1D9328BD001CC5E3 /* Image.swift in Sources */,
+				44FD3C7F1DA40FB8008DEB8B /* ManageServerViewController.swift in Sources */,
 				8D428B331D9C60FB0072BE3D /* ServerViewController.swift in Sources */,
 				44B04AB21D89CA9F00A6AFD7 /* CinderViewController.swift in Sources */,
 				8D2608C31D777B8A00C8DD53 /* SwiftyJSON.swift in Sources */,

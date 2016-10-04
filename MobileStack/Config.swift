@@ -9,4 +9,5 @@ struct Config {
     static let CINDERPORT = "port"
     static let NOVAPORT = "port"
     static let NEUTRONPORT = "port"
+    static let TENANTID = "8319952f7d374fd3b15ec9964a8384f8"
 }
