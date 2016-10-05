@@ -80,12 +80,12 @@ class AuthViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getAuthToken { keystoneToken in
+        /*getAuthToken { keystoneToken in
             
             DispatchQueue.main.async(execute: { () -> Void in
                 self.authTokenField.text = keystoneToken
             })
-        }
+        }*/
         
         // Do any additional setup after loading the view, typically from a nib.
     }
