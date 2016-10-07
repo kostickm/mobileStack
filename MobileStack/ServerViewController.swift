@@ -110,8 +110,10 @@ class ServerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
         if pickerView == imagePickerView {
             pickerLabel?.text = images[row].name
+            pickerLabel?.textColor = UIColor.white
         } else if pickerView == flavorPickerView{
             pickerLabel?.text = flavors[row].name
+            pickerLabel?.textColor = UIColor.white
         }
         
         return pickerLabel!;

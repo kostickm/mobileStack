@@ -60,9 +60,11 @@ class ServerTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ServerTableViewCell
         
         let server = self.servers[indexPath.row] as Server
+        cell.backgroundColor = UIColor.darkGray
         cell.serverNameLabel.text = server.name
+        cell.serverNameLabel.textColor = UIColor.white
         cell.serverIdLabel.text = server.id
-        //cell.serverStatusImage.backgroundColor = UIColor.blue
+        cell.serverIdLabel.textColor = UIColor.white
         switch server.status! {
             case "ACTIVE":
                 cell.serverStatusImage.image = #imageLiteral(resourceName: "GreenCheckmark")

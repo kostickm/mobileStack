@@ -60,8 +60,11 @@ class ImageTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ImageCell", for: indexPath)
      
         let image = self.images[indexPath.row] as Image
+        cell.backgroundColor = UIColor.darkGray
         cell.textLabel?.text = image.name
         cell.detailTextLabel?.text = image.createdAt
+        cell.textLabel?.textColor = UIColor.white
+        cell.detailTextLabel?.textColor = UIColor.white
         return cell
     }
 
