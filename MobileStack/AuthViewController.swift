@@ -68,9 +68,11 @@ class AuthViewController: UIViewController {
         //print(imageList)
         //deleteImage()
         //getVolumes()
-        getServers { servers in
+        /*getServers { servers in
             print(servers)
-        }
+        }*/
+        //createVolume(name: "Test1", size: "1")
+        availableVolumes()
         //getNetworks()
     }
     
