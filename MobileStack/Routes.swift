@@ -23,7 +23,7 @@ import Foundation
 
 // Create a VM - OK
 
-// Create a Volume
+// Create a Volume - Needs UI
 
 // Create a User ???
 
@@ -32,10 +32,12 @@ import Foundation
 
 // Delete an Image - OK or list details
 
-// Delete a Volume
+// Delete a Volume - Needs UI
 
 // Delete a User
 
+
+// Server attach volume
 
 // Server Start - OK
 

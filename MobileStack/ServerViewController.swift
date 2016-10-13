@@ -13,8 +13,10 @@ class ServerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     var server: Server?
     var images = [Image]()
     var flavors = [Flavor]()
+    var volumes = [Volume]()
     var imageId:String = ""
     var flavorId:String = ""
+    var volumeId:String = ""
     
     @IBOutlet weak var saveServerButton: UIBarButtonItem!
     @IBAction func cancelServerButton(_ sender: UIBarButtonItem) {
@@ -24,9 +26,11 @@ class ServerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBOutlet weak var serverNameLabel: UILabel!
     @IBOutlet weak var imageLabel: UILabel!
     @IBOutlet weak var flavorLabel: UILabel!
+ 
     @IBOutlet weak var serverNameTextField: UITextField!
     @IBOutlet weak var flavorPickerView: UIPickerView!
     @IBOutlet weak var imagePickerView: UIPickerView!
+
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated) // No need for semicolon
@@ -54,7 +58,6 @@ class ServerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                 self.flavorPickerView.dataSource = self
             })
         }
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -73,7 +76,7 @@ class ServerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         var count = 0
         if pickerView == imagePickerView {
             count = images.count
-        } else if pickerView == flavorPickerView{
+        } else if pickerView == flavorPickerView {
             return flavors.count
         }
         
@@ -111,7 +114,7 @@ class ServerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         if pickerView == imagePickerView {
             pickerLabel?.text = images[row].name
             pickerLabel?.textColor = UIColor.white
-        } else if pickerView == flavorPickerView{
+        } else if pickerView == flavorPickerView {
             pickerLabel?.text = flavors[row].name
             pickerLabel?.textColor = UIColor.white
         }
@@ -126,7 +129,7 @@ class ServerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         // The parameter named row and component represents what was selected.
         if pickerView == imagePickerView {
             self.imageId = images[row].id!
-        } else if pickerView == flavorPickerView{
+        } else if pickerView == flavorPickerView {
             self.flavorId = flavors[row].id!
         }
         
@@ -139,6 +142,7 @@ class ServerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             let name = serverNameTextField.text ?? ""
             
             // Set the server to be passed to ServerTableViewController after the unwind segue.
+            print(volumeId)
             createServer(name: name, imageId: imageId, flavorId: flavorId)
         }
     }
