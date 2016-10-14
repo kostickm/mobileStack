@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="RDn-fR-Cc9">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="RDn-fR-Cc9">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -64,13 +64,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="B3K-Rc-Wcu">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="B3K-Rc-Wcu">
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mobileStack" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1aw-6Z-hbq">
-                                        <fontDescription key="fontDescription" type="system" pointSize="31"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="4iW-lN-ebZ"/>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -86,7 +82,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hde-2G-EOG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1543" y="-824"/>
+            <point key="canvasLocation" x="-1543.2" y="-824.43778110944538"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="fpE-29-ECk">
@@ -184,7 +180,7 @@
                                 <rect key="frame" x="0.0" y="86" width="375" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dG8-oz-BdN" id="dBS-zt-hVv">
-                                    <frame key="frameInset" width="342" height="49.5"/>
+                                    <frame key="frameInset" width="342" height="49"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="GreenCheckmark" translatesAutoresizingMaskIntoConstraints="NO" id="lGu-OC-dk4">
@@ -400,7 +396,7 @@
         <scene sceneID="GD0-xf-Uiy">
             <objects>
                 <navigationController id="f2d-7y-pn9" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Volumes" id="RER-dC-dH0"/>
+                    <tabBarItem key="tabBarItem" title="Volumes" image="Volume" id="RER-dC-dH0"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3DO-Mo-Tc8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -599,6 +595,8 @@
         <image name="GreenCheckmark" width="400" height="400"/>
         <image name="Home" width="18" height="18"/>
         <image name="Lock" width="11" height="13"/>
+        <image name="Logo" width="233" height="423"/>
         <image name="Server" width="18" height="18"/>
+        <image name="Volume" width="16" height="16"/>
     </resources>
 </document>
