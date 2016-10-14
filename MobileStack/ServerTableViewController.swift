@@ -1,22 +1,30 @@
-//
-//  serverTableViewController.swift
-//  MobileStack
-//
-//  Created by Megan Dawn Kostick on 9/21/16.
-//
-//
+/**
+ * Copyright IBM Corporation 2016
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ **/
 
 import UIKit
 
 class ServerTableViewController: UITableViewController {
-    
+
     var servers = [Server]()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.leftBarButtonItem = editButtonItem;
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated) // No need for semicolon
         getServers { servers in
@@ -28,7 +36,7 @@ class ServerTableViewController: UITableViewController {
         }
         self.refreshControl?.addTarget(self, action: #selector(ServerTableViewController.handleRefresh(_:)), for: UIControlEvents.valueChanged)
     }
-    
+
     func handleRefresh(_ refreshControl: UIRefreshControl) {
         getServers { servers in
             self.servers = servers
@@ -38,27 +46,27 @@ class ServerTableViewController: UITableViewController {
         }
         refreshControl.endRefreshing()
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     // MARK: - Table view data source
-    
+
     override func numberOfSections(in tableView: UITableView) -> Int {
-        
+
         return 1
     }
-    
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.servers.count
     }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "ServerTableViewCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ServerTableViewCell
-        
+
         let server = self.servers[indexPath.row] as Server
         cell.backgroundColor = UIColor.darkGray
         cell.serverNameLabel.text = server.name
@@ -73,16 +81,16 @@ class ServerTableViewController: UITableViewController {
         default:
             cell.serverStatusImage.image = #imageLiteral(resourceName: "GreenCheckmark")
         }
-        
+
         return cell
     }
-    
+
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    
+
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -94,14 +102,14 @@ class ServerTableViewController: UITableViewController {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
     }
-    
+
     /*
      // Override to support rearranging the table view.
      override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
+
      }
      */
-    
+
     /*
      // Override to support conditional rearranging of the table view.
      override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
@@ -109,9 +117,9 @@ class ServerTableViewController: UITableViewController {
      return true
      }
      */
-    
+
      // MARK: - Navigation
-     
+
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
      // Get the new view controller using segue.destinationViewController.
@@ -125,22 +133,22 @@ class ServerTableViewController: UITableViewController {
             }
         }
      }
-    
-    
-    
+
+
+
     @IBAction func unwindToServerList(sender: UIStoryboardSegue) {
-        
+
         if let sourceViewController = sender.source as? ServerViewController, let server = sourceViewController.server {
-            
+
             // Add a new server
             let newIndexPath = IndexPath(row: servers.count, section: 0)
-            
+
             servers.append(server)
-            
+
             tableView.insertRows(at: [newIndexPath], with: .bottom)
-            
+
         }
-        
+
     }
 
 }

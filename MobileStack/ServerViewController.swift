@@ -1,10 +1,18 @@
-//
-//  ServerViewController.swift
-//  MobileStack
-//
-//  Created by Megan Dawn Kostick on 9/28/16.
-//
-//
+/**
+ * Copyright IBM Corporation 2016
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ **/
 
 import UIKit
 
@@ -17,30 +25,30 @@ class ServerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     var imageId:String = ""
     var flavorId:String = ""
     var volumeId:String = ""
-    
+
     @IBOutlet weak var saveServerButton: UIBarButtonItem!
     @IBAction func cancelServerButton(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
-    
+
     @IBOutlet weak var serverNameLabel: UILabel!
     @IBOutlet weak var imageLabel: UILabel!
     @IBOutlet weak var flavorLabel: UILabel!
- 
+
     @IBOutlet weak var serverNameTextField: UITextField!
     @IBOutlet weak var flavorPickerView: UIPickerView!
     @IBOutlet weak var imagePickerView: UIPickerView!
 
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated) // No need for semicolon
-        
+
         // Connect data:
         //self.imagePickerView.delegate = self
         //self.imagePickerView.dataSource = self
         //self.flavorPickerView.delegate = self
         //self.flavorPickerView.dataSource = self
-        
+
         getImages { images in
             self.images = images
             DispatchQueue.main.async(execute: { () -> Void in
@@ -49,7 +57,7 @@ class ServerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                 self.imagePickerView.dataSource = self
             })
         }
-        
+
         getFlavors { flavors in
             self.flavors = flavors
             DispatchQueue.main.async(execute: { () -> Void in
@@ -64,53 +72,53 @@ class ServerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     // The number of columns of data
     func numberOfComponents(in: UIPickerView) -> Int {
         return 1
     }
-    
+
     // The number of rows of data
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent: Int) -> Int {
-        
+
         var count = 0
         if pickerView == imagePickerView {
             count = images.count
         } else if pickerView == flavorPickerView {
             return flavors.count
         }
-        
+
         return count
     }
-    
+
     /*
     // The data to return for the row and component (column) that's being passed in
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent: Int) -> String? {
-        
+
         var name = ""
-        
+
         if pickerView == imagePickerView {
             name = images[row].name!
             print("IN NAME IMAGES")
         } else if pickerView == flavorPickerView{
             return flavors[row].name
         }
-        
+
         return name
     }
     */
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        
+
         var pickerLabel = view as? UILabel;
-        
+
         if (pickerLabel == nil)
         {
             pickerLabel = UILabel()
-            
+
             pickerLabel?.font = UIFont(name: "Helvetica", size: 10)
             pickerLabel?.textAlignment = NSTextAlignment.center
         }
-        
+
         if pickerView == imagePickerView {
             pickerLabel?.text = images[row].name
             pickerLabel?.textColor = UIColor.white
@@ -118,9 +126,9 @@ class ServerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             pickerLabel?.text = flavors[row].name
             pickerLabel?.textColor = UIColor.white
         }
-        
+
         return pickerLabel!;
-        
+
     }
 
     // Catpure the picker view selection
@@ -132,7 +140,7 @@ class ServerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         } else if pickerView == flavorPickerView {
             self.flavorId = flavors[row].id!
         }
-        
+
     }
 
     // MARK: - Navigation
@@ -140,7 +148,7 @@ class ServerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if saveServerButton === sender as AnyObject? {
             let name = serverNameTextField.text ?? ""
-            
+
             // Set the server to be passed to ServerTableViewController after the unwind segue.
             print(volumeId)
             createServer(name: name, imageId: imageId, flavorId: flavorId)

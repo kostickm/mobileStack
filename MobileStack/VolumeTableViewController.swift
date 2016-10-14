@@ -1,17 +1,25 @@
-//
-//  VolumeTableViewController.swift
-//  MobileStack
-//
-//  Created by Michael Brewer on 10/13/16.
-//
-//
+/**
+ * Copyright IBM Corporation 2016
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ **/
 
 import UIKit
 
 class VolumeTableViewController: UITableViewController {
 
     var volumes = [Volume]()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,7 +40,7 @@ class VolumeTableViewController: UITableViewController {
             })
         }
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -60,7 +68,7 @@ class VolumeTableViewController: UITableViewController {
         return cell!
     }
 
-    
+
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
@@ -74,7 +82,7 @@ class VolumeTableViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
 
     /*
@@ -83,7 +91,7 @@ class VolumeTableViewController: UITableViewController {
 
     }
     */
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
