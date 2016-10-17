@@ -62,8 +62,8 @@ class VolumeTableViewController: UITableViewController {
 
         let volume = self.volumes[indexPath.row] as Volume
         cell!.backgroundColor = UIColor.darkGray
-        cell!.textLabel?.text = volume.name
-        cell!.detailTextLabel?.text = volume.status
+        cell!.textLabel?.text = volume.id
+        cell!.detailTextLabel?.text = "Size: \(volume.size!)GB - \(volume.status!)"
 
         return cell!
     }

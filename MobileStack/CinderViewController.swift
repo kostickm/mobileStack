@@ -44,10 +44,9 @@ func getVolumes(complete: @escaping ([Volume]) -> ()) {
             var volumeList = [Volume]()
 
             for (_, item) in json["volumes"] {
-                let volumeInfo = Volume(name: item["name"].string, id: item["id"].string, status: item["status"].string)
+                let volumeInfo = Volume(name: item["name"].string, id: item["id"].string, status: item["status"].string, size: String(describing: item["size"].object))
                 volumeList.append(volumeInfo)
             }
-            print(volumeList)
             //self.authTokenField.text = "\(json)"
             complete(volumeList)
             }.resume()
@@ -77,17 +76,17 @@ func availableVolumes(complete: @escaping ([Volume]) -> ()) {
             var volumeList = [Volume]()
 
             for (_, item) in json["volumes"] {
-                print(item["name"].string!)
-                print(item["id"].string!)
-                print(item["status"].string!)
                 if item["status"].string! == "available" {
-                    print("Is available")
-                    let volumeInfo = Volume(name: item["name"].string!, id: item["id"].string!, status: item["status"].string!)
+                    let volumeInfo = Volume(name: item["name"].string!, id: item["id"].string!, status: item["status"].string!, size: String(describing: item["size"].object))
                     volumeList.append(volumeInfo)
                 }
             }
+<<<<<<< Updated upstream
             print(volumeList)
 
+=======
+            
+>>>>>>> Stashed changes
             //("VOLUMES: \(json)")
             //self.authTokenField.text = "\(json)"
             complete(volumeList)

@@ -20,10 +20,17 @@ struct Volume {
     var name: String?
     var id: String?
     var status: String?
+<<<<<<< Updated upstream
 
     init(name: String?, id: String?, status: String?) {
+=======
+    var size: String?
+    
+    init(name: String?, id: String?, status: String?, size: String?) {
+>>>>>>> Stashed changes
         self.name = name
         self.id = id
         self.status = status
+        self.size = size
     }
 }
