@@ -105,7 +105,7 @@
             </objects>
             <point key="canvasLocation" x="-1543" y="34"/>
         </scene>
-        <!--AUTH-->
+        <!--Auth-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="AuthViewController" customModule="MobileStack" customModuleProvider="target" sceneMemberID="viewController">
@@ -154,7 +154,7 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="kTL-Cz-mJ6" secondAttribute="bottom" constant="20" id="iKf-iX-ALJ"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="AUTH" image="Lock" id="YLe-ZJ-c1h"/>
+                    <tabBarItem key="tabBarItem" title="Auth" image="Lock" id="YLe-ZJ-c1h"/>
                     <connections>
                         <outlet property="authTokenField" destination="Cym-DL-Z7M" id="DG3-AM-AqC"/>
                         <outlet property="titleLabel" destination="bdh-mW-5nq" id="yLn-8K-1oI"/>
