@@ -52,7 +52,7 @@
             </objects>
             <point key="canvasLocation" x="145" y="825"/>
         </scene>
-        <!--HOME-->
+        <!--Home-->
         <scene sceneID="rO2-Ic-u2Z">
             <objects>
                 <viewController id="OOu-F0-u8u" sceneMemberID="viewController">
@@ -78,7 +78,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="B3K-Rc-Wcu" secondAttribute="trailing" id="lSi-IA-RBa"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="HOME" image="Home" id="a6W-zw-V3t"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="Home" id="a6W-zw-V3t"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hde-2G-EOG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
