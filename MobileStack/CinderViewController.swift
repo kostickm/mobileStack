@@ -81,14 +81,6 @@ func availableVolumes(complete: @escaping ([Volume]) -> ()) {
                     volumeList.append(volumeInfo)
                 }
             }
-<<<<<<< Updated upstream
-            print(volumeList)
-
-=======
-            
->>>>>>> Stashed changes
-            //("VOLUMES: \(json)")
-            //self.authTokenField.text = "\(json)"
             complete(volumeList)
             }.resume()
     }
