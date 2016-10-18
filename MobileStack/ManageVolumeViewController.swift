@@ -16,17 +16,46 @@
 
 import UIKit
 
-class ManageVolumeViewController: UIViewController {
+class ManageVolumeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     var volumeName = ""
     var volumeId = ""
     var volumeStatus = ""
+    var volumeSize = ""
+    var servers = [Server]()
+    var serverName:String = ""
 
+    @IBOutlet weak var volumeIdLabel: UILabel!
+    @IBOutlet weak var volumeSizeLabel: UILabel!
+    @IBOutlet weak var volumeStatusLabel: UILabel!
+    @IBOutlet weak var volumeNameLabel: UILabel!
+    @IBOutlet weak var serverPickerView: UIPickerView!
+    
+    // TODO: Attach volume to server
+    @IBAction func attachVolumeButton(_ sender: AnyObject) {
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(self.volumeId)
-        print(self.volumeName)
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        getServers { servers in
+            self.servers = servers
+            DispatchQueue.main.async(execute: { () -> Void in
+                self.serverName = servers[0].name!
+                self.serverPickerView.delegate = self
+                self.serverPickerView.dataSource = self
+            })
+        }
+        
+        self.volumeIdLabel.text = "\(volumeId)"
+        self.volumeNameLabel.text = "\(volumeName)"
+        self.volumeSizeLabel.text = "Size: \(volumeSize)GB"
+        self.volumeStatusLabel.text = "Status: \(volumeStatus)"
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,7 +63,64 @@ class ManageVolumeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    // The number of columns of data
+    func numberOfComponents(in: UIPickerView) -> Int {
+        return 1
+    }
+    
+    // The number of rows of data
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent: Int) -> Int {
+        
+        var count = 0
+        if pickerView == serverPickerView {
+            count = servers.count
+        }
+        
+        return count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        
+        var pickerLabel = view as? UILabel;
+        
+        if (pickerLabel == nil)
+        {
+            pickerLabel = UILabel()
+            
+            pickerLabel?.font = UIFont(name: "Helvetica", size: 10)
+            pickerLabel?.textAlignment = NSTextAlignment.center
+        }
+        
+        if pickerView == serverPickerView {
+            pickerLabel?.text = servers[row].name
+            pickerLabel?.textColor = UIColor.white
+        }
+        
+        return pickerLabel!;
+        
+    }
+    
+    // Catpure the picker view selection
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        // This method is triggered whenever the user makes a change to the picker selection.
+        // The parameter named row and component represents what was selected.
+        if pickerView == serverPickerView {
+            self.serverName = servers[row].name!
+        }
+        
+    }
+    
+    // MARK: - Navigation
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if saveServerButton === sender as AnyObject? {
+            let name = serverNameTextField.text ?? ""
+            
+            // Set the server to be passed to ServerTableViewController after the unwind segue.
+            print(volumeId)
+            createServer(name: name, imageId: imageId, flavorId: flavorId)
+        }
+    }*/
     /*
     // MARK: - Navigation
 

@@ -16,7 +16,7 @@
 
 import UIKit
 
-class ServerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class ServerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
 
     var server: Server?
     var images = [Image]()
@@ -66,11 +66,33 @@ class ServerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                 self.flavorPickerView.dataSource = self
             })
         }
+        
+        // Handle the text field’s user input through delegate callbacks.
+        //serverNameTextField.delegate = self
+        
+        // Enable the Save button only if the text field has a valid Volume name.
+        //checkValidServerName()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        // Disable the Save button while editing.
+        saveServerButton.isEnabled = false
+    }
+    
+    func checkValidServerName() {
+        // Disable the Save button if the text field is empty.
+        let text = serverNameTextField.text ?? ""
+        saveServerButton.isEnabled = !text.isEmpty
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        checkValidServerName()
+        navigationItem.title = textField.text
     }
 
     // The number of columns of data
@@ -91,22 +113,6 @@ class ServerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         return count
     }
 
-    /*
-    // The data to return for the row and component (column) that's being passed in
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent: Int) -> String? {
-
-        var name = ""
-
-        if pickerView == imagePickerView {
-            name = images[row].name!
-            print("IN NAME IMAGES")
-        } else if pickerView == flavorPickerView{
-            return flavors[row].name
-        }
-
-        return name
-    }
-    */
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
 
         var pickerLabel = view as? UILabel;
@@ -150,7 +156,6 @@ class ServerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             let name = serverNameTextField.text ?? ""
 
             // Set the server to be passed to ServerTableViewController after the unwind segue.
-            print(volumeId)
             createServer(name: name, imageId: imageId, flavorId: flavorId)
         }
     }

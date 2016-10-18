@@ -16,10 +16,18 @@
 
 import UIKit
 
-class VolumeViewController: UIViewController {
+class VolumeViewController: UIViewController, UITextFieldDelegate {
 
     var volumes = [Volume]()
     var volumeId:String = ""
+    var volume: Volume?
+    
+    
+    @IBOutlet weak var volumeNameLabel: UILabel!
+    @IBOutlet weak var volumeSizeLabel: UILabel!
+    @IBOutlet weak var volumeNameTextField: UITextField!
+    @IBOutlet weak var volumeSizeTextField: UITextField!
+    @IBOutlet weak var saveVolumeButton: UIBarButtonItem!
 
     @IBAction func cancelVolumeButton(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
@@ -37,22 +45,49 @@ class VolumeViewController: UIViewController {
         getVolumes { volumes in
 
         }
+        
+        // Handle the text field’s user input through delegate callbacks.
+        volumeNameTextField.delegate = self
+        
+        // Enable the Save button only if the text field has a valid Volume name.
+        checkValidVolumeName()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        // Disable the Save button while editing.
+        saveVolumeButton.isEnabled = false
+    }
+    
+    func checkValidVolumeName() {
+        // Disable the Save button if the text field is empty.
+        let text = volumeNameTextField.text ?? ""
+        saveVolumeButton.isEnabled = !text.isEmpty
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        checkValidVolumeName()
+        navigationItem.title = textField.text
+    }
 
-
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if saveVolumeButton === sender as AnyObject? {
+            let name = volumeNameTextField.text ?? ""
+            let size = volumeSizeTextField.text ?? "0"
+            
+            // Set the volume to be passed to VolumeTableViewController after the unwind segue.
+            createVolume(name: name, size: size)
+        }
     }
-    */
+    
 
 }

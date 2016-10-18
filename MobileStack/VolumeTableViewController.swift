@@ -39,11 +39,23 @@ class VolumeTableViewController: UITableViewController {
                 self.tableView.reloadData()
             })
         }
+        
+        self.refreshControl?.addTarget(self, action: #selector(VolumeTableViewController.handleRefresh(_:)), for: UIControlEvents.valueChanged)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func handleRefresh(_ refreshControl: UIRefreshControl) {
+        getVolumes { volumes in
+            self.volumes = volumes
+            DispatchQueue.main.async(execute: { () -> Void in
+                self.tableView.reloadData()
+            })
+        }
+        refreshControl.endRefreshing()
     }
 
     // MARK: - Table view data source
@@ -101,12 +113,13 @@ class VolumeTableViewController: UITableViewController {
                 destinationVC.volumeName = volumes[indexPath.row].name!
                 destinationVC.volumeId = volumes[indexPath.row].id!
                 destinationVC.volumeStatus = volumes[indexPath.row].status!
+                destinationVC.volumeSize = volumes[indexPath.row].size!
             }
         }
     }
 
     
-    /*@IBAction func unwindToServerList(sender: UIStoryboardSegue) {
+    @IBAction func unwindToVolumeList(sender: UIStoryboardSegue) {
         
         if let sourceViewController = sender.source as? VolumeViewController, let volume = sourceViewController.volume {
             
@@ -119,7 +132,7 @@ class VolumeTableViewController: UITableViewController {
             
         }
         
-    }*/
+    }
     
     /*
     // Override to support conditional rearranging of the table view.
