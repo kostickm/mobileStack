@@ -89,8 +89,8 @@ class AuthViewController: UIViewController {
             print(servers)
         }*/
         //createVolume(name: "Test1", size: "1")
-        availableVolumes { volumes in
-        }
+        //availableVolumes { volumes in
+        //}
         //deleteVolume(id: "2c36c622-b67c-410a-8a1f-bb7190aa85c3")
         //getNetworks()
     }

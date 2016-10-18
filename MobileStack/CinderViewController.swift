@@ -115,8 +115,8 @@ func createVolume(name: String, size: String) {
 
         let session = URLSession.shared
 
-        print("Headers: \(cinderReq.allHTTPHeaderFields)")
-        print("Body: \(cinderReq.httpBody)")
+        //print("Headers: \(cinderReq.allHTTPHeaderFields)")
+        //print("Body: \(cinderReq.httpBody)")
 
         // Perform Request
         session.dataTask(with: cinderReq) {result, res, err in
@@ -144,8 +144,8 @@ func deleteVolume(id: String) {
 
         let session = URLSession.shared
 
-        print("Headers: \(cinderReq.allHTTPHeaderFields)")
-        print("Body: \(cinderReq.httpBody)")
+        //print("Headers: \(cinderReq.allHTTPHeaderFields)")
+        //print("Body: \(cinderReq.httpBody)")
 
         // Perform Request
         session.dataTask(with: cinderReq) {result, res, err in
@@ -160,6 +160,55 @@ func deleteVolume(id: String) {
             // Convert results to a JSON object
             //let json = JSON(data: result)
 
+            }.resume()
+    }
+}
+
+func attachVolume(volume: String, server: String) {
+    getAuthToken { keystoneToken in
+        
+        let parameters:[String: Any] = ["os-attach": [
+            "instance_uuid": server,
+            "mountpoint": "/dev/vdc",
+            ]
+        ]
+        
+        // Create Request
+        var cinderReq = URLRequest(url: URL(string: "http://\(controller):\(cinderport)/v2/\(tenantId)/volumes/\(volume)/action")!)
+        cinderReq.httpMethod = "POST"
+        
+        if JSONSerialization.isValidJSONObject(parameters) == false {
+            print("Invalid JSON")
+        }
+        
+        do {
+            cinderReq.httpBody = try JSONSerialization.data(withJSONObject: parameters,
+                                                            options: JSONSerialization.WritingOptions())
+        } catch {
+            print("Could not create JSON body")
+        }
+        
+        cinderReq.allHTTPHeaderFields = ["Content-Type": "application/json", "X-Auth-Token": "\(keystoneToken)"]
+        
+        let session = URLSession.shared
+        
+        print("Headers: \(cinderReq.allHTTPHeaderFields)")
+        print("Body: \(cinderReq.httpBody)")
+        
+        // Perform Request
+        session.dataTask(with: cinderReq) {result, res, err in
+            guard result != nil else {
+                print("No result")
+                return
+            }
+            
+            print(result)
+            print(res)
+            print(err)
+            
+            // Convert results to a JSON object
+            //let json = JSON(data: result)
+            
             }.resume()
     }
 }

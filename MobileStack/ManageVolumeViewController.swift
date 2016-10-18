@@ -23,6 +23,7 @@ class ManageVolumeViewController: UIViewController, UIPickerViewDelegate, UIPick
     var volumeSize = ""
     var servers = [Server]()
     var serverName:String = ""
+    var serverId:String = ""
 
     @IBOutlet weak var volumeIdLabel: UILabel!
     @IBOutlet weak var volumeSizeLabel: UILabel!
@@ -32,6 +33,16 @@ class ManageVolumeViewController: UIViewController, UIPickerViewDelegate, UIPick
     
     // TODO: Attach volume to server
     @IBAction func attachVolumeButton(_ sender: AnyObject) {
+        
+        attachVolume(volume: self.volumeId, server: self.serverId)
+        
+        let alert = UIAlertController(title: "\(self.volumeName)", message: "Attaching Volume...", preferredStyle: UIAlertControllerStyle.alert)
+        
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
@@ -100,20 +111,22 @@ class ManageVolumeViewController: UIViewController, UIPickerViewDelegate, UIPick
         
     }
     
-    // Catpure the picker view selection
+    // Capture the picker view selection
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         // This method is triggered whenever the user makes a change to the picker selection.
         // The parameter named row and component represents what was selected.
         if pickerView == serverPickerView {
             self.serverName = servers[row].name!
+            self.serverId = servers[row].id!
         }
         
     }
     
     // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if saveServerButton === sender as AnyObject? {
+        if attachVolumeButton === sender as AnyObject? {
             let name = serverNameTextField.text ?? ""
             
             // Set the server to be passed to ServerTableViewController after the unwind segue.
@@ -121,6 +134,7 @@ class ManageVolumeViewController: UIViewController, UIPickerViewDelegate, UIPick
             createServer(name: name, imageId: imageId, flavorId: flavorId)
         }
     }*/
+ 
     /*
     // MARK: - Navigation
 
