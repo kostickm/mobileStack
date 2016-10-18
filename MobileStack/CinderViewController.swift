@@ -153,9 +153,9 @@ func deleteVolume(id: String) {
                 print("No result")
                 return
             }
-            print(result)
-            print(res)
-            print(err)
+            //print(result)
+            //print(res)
+            //print(err)
 
             // Convert results to a JSON object
             //let json = JSON(data: result)

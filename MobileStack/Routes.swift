@@ -16,11 +16,7 @@
  
 import Foundation
 
-// Try devstack
-// Install where we have floating ips
-
 // OpenStack Services: keystone, glance, nova, neutron, cinder
-// Can devstack do this?
 
 
 // Get token - have route, need to save data
@@ -30,7 +26,7 @@ import Foundation
 
 // List Images - OK
 
-// List Volumes - OK not shown
+// List Volumes - OK
 
 // List Networks - OK not shown
 
@@ -39,7 +35,7 @@ import Foundation
 
 // Create a VM - OK
 
-// Create a Volume - Needs UI
+// Create a Volume - OK
 
 // Create a User ???
 
@@ -48,12 +44,12 @@ import Foundation
 
 // Delete an Image - OK or list details
 
-// Delete a Volume - Needs UI
+// Delete a Volume - OK
 
 // Delete a User
 
 
-// Server attach volume
+// Server attach volume - Needs function, UI Done
 
 // Server Start - OK
 
