@@ -16,6 +16,7 @@
 		44B04AB21D89CA9F00A6AFD7 /* CinderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B04AB11D89CA9F00A6AFD7 /* CinderViewController.swift */; };
 		44B04AB41D89D96C00A6AFD7 /* NovaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B04AB31D89D96C00A6AFD7 /* NovaViewController.swift */; };
 		44B04AB61D89DC9500A6AFD7 /* NeutronViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B04AB51D89DC9500A6AFD7 /* NeutronViewController.swift */; };
+		44BA83451DB82F8100FDF9A6 /* Attach.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BA83441DB82F8100FDF9A6 /* Attach.swift */; };
 		44E4D2E11DAFE6A200FFBCEE /* VolumeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E4D2E01DAFE6A200FFBCEE /* VolumeTableViewController.swift */; };
 		44FD3C7F1DA40FB8008DEB8B /* ManageServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FD3C7E1DA40FB8008DEB8B /* ManageServerViewController.swift */; };
 		8D26089F1D77798D00C8DD53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D26089E1D77798D00C8DD53 /* AppDelegate.swift */; };
@@ -55,6 +56,7 @@
 		44B04AB11D89CA9F00A6AFD7 /* CinderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CinderViewController.swift; sourceTree = "<group>"; };
 		44B04AB31D89D96C00A6AFD7 /* NovaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NovaViewController.swift; sourceTree = "<group>"; };
 		44B04AB51D89DC9500A6AFD7 /* NeutronViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeutronViewController.swift; sourceTree = "<group>"; };
+		44BA83441DB82F8100FDF9A6 /* Attach.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attach.swift; sourceTree = "<group>"; };
 		44E4D2E01DAFE6A200FFBCEE /* VolumeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VolumeTableViewController.swift; sourceTree = "<group>"; };
 		44FD3C7E1DA40FB8008DEB8B /* ManageServerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageServerViewController.swift; sourceTree = "<group>"; };
 		8D26089B1D77798D00C8DD53 /* MobileStack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileStack.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,6 +145,7 @@
 				44E4D2E01DAFE6A200FFBCEE /* VolumeTableViewController.swift */,
 				441076831DAFF8A9006C685E /* VolumeViewController.swift */,
 				441076851DB007C4006C685E /* ManageVolumeViewController.swift */,
+				44BA83441DB82F8100FDF9A6 /* Attach.swift */,
 			);
 			path = MobileStack;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				8D26089F1D77798D00C8DD53 /* AppDelegate.swift in Sources */,
 				44B04AB41D89D96C00A6AFD7 /* NovaViewController.swift in Sources */,
 				4465E5531DAE7F9600B1A4BC /* Volume.swift in Sources */,
+				44BA83451DB82F8100FDF9A6 /* Attach.swift in Sources */,
 				441076861DB007C4006C685E /* ManageVolumeViewController.swift in Sources */,
 				8DE3D2F01D93375B001CC5E3 /* ImageTableViewController.swift in Sources */,
 			);

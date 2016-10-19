@@ -90,6 +90,12 @@ class AuthViewController: UIViewController {
         //}
         //deleteVolume(id: "2c36c622-b67c-410a-8a1f-bb7190aa85c3")
         //getNetworks()
+        listVolumeAttachments(serverId: "9e8796e0-05e5-478f-b7db-a7fec3fef2e9") { attachments in
+            print(attachments)
+        }
+        listVolumeAttachments(serverId: "d67935ce-3045-413b-b6bf-e8503753c91e") { attachments in
+            print(attachments)
+        }
     }
 
     @IBAction func reset(_ sender: AnyObject) {

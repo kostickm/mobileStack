@@ -45,6 +45,23 @@ class ManageVolumeViewController: UIViewController, UIPickerViewDelegate, UIPick
         self.present(alert, animated: true, completion: nil)
     }
     
+    @IBAction func detachVolumeButton(_ sender: AnyObject) {
+        listVolumeAttachments(serverId: self.serverId) { attachmentList in
+            print(attachmentList)
+            
+            //TODO: Create loop over array of attachment IDs then attach the currently selected volumeId
+            
+            //detachVolumeToServer(serverId: self.serverId, volumeId: self.volumeId, attachments: attachmentList)
+        }
+        
+        let alert = UIAlertController(title: "\(self.volumeName)", message: "Detaching Volume...", preferredStyle: UIAlertControllerStyle.alert)
+        
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 

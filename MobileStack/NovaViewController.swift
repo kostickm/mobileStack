@@ -39,6 +39,7 @@ func getServers(complete: @escaping ([Server]) -> ()) {
 
             // Convert results to a JSON object
             let json = JSON(data: result)
+            //print(json)
 
             var serverList = [Server]()
 
@@ -305,12 +306,6 @@ func attachVolumeToServer(serverId: String, volumeId: String) {
                 print("No result")
                 return
             }
-            print("Result")
-            print(result)
-            print("\nResponse")
-            print(res)
-            print("\nErr")
-            print(err)
             
             // Convert results to a JSON object
             //let json = JSON(data: result)
@@ -318,3 +313,68 @@ func attachVolumeToServer(serverId: String, volumeId: String) {
             }.resume()
     }
 }
+
+func listVolumeAttachments(serverId: String, complete: @escaping ([Attach]) -> ()) {
+    getAuthToken { keystoneToken in
+        
+        // Create Request
+        var novaReq = URLRequest(url: URL(string: "http://\(controller):\(novaport)/v2.1/\(tenantId)/servers/\(serverId)/os-volume_attachments")!)
+        novaReq.httpMethod = "GET"
+        
+        novaReq.allHTTPHeaderFields = ["Content-Type": "application/json", "X-Auth-Token": "\(keystoneToken)"]
+        
+        let session = URLSession.shared
+        
+        // Perform Request
+        session.dataTask(with: novaReq) {result, res, err in
+            guard let result = result else {
+                print("No result")
+                return
+            }
+            
+            // Convert results to a JSON object
+            let json = JSON(data: result)
+            print(json)
+            
+            var attachmentList = [Attach]()
+            
+            if json["volumeAttachments"].exists() {
+                for (_, item) in json["volumeAttachments"] {
+                    let volumeInfo = Attach(id: item["id"].string!, serverId: item["serverId"].string!, volumeId: item["volumeId"].string!)
+                    attachmentList.append(volumeInfo)
+                }
+            }
+
+            complete(attachmentList)
+            }.resume()
+    }
+}
+
+func detachVolumeToServer(serverId: String, volumeId: String, attachments: [String]) {
+    getAuthToken { keystoneToken in
+        for (i, item) in attachments.enumerated() {
+            // Create Request
+            print(i)
+            print(item)
+            /*var novaReq = URLRequest(url: URL(string: "http://\(controller):\(novaport)/v2.1/\(tenantId)/servers/\(serverId)/os-volume_attachments/\(item)")!)
+            novaReq.httpMethod = "DELETE"
+        
+            novaReq.allHTTPHeaderFields = ["Content-Type": "application/json", "X-Auth-Token": "\(keystoneToken)"]
+        
+            let session = URLSession.shared
+        
+            // Perform Request
+            session.dataTask(with: novaReq) {result, res, err in
+                guard result != nil else {
+                    print("No result")
+                    return
+                }
+            
+                // Convert results to a JSON object
+                //let json = JSON(data: result)
+              
+                }.resume()*/
+        }
+    }
+}
+
