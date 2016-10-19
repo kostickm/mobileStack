@@ -77,14 +77,11 @@ class AuthViewController: UIViewController {
             })
         }
 
-        getFlavors { flavor in
-
-        }
+        //getFlavors { flavor in
+        //}
         //var imageList = globalImages
         //print(imageList)
         //deleteImage()
-        getVolumes { volumes in
-        }
         /*getServers { servers in
             print(servers)
         }*/

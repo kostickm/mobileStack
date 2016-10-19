@@ -86,7 +86,7 @@ func createServer(name: String, imageId: String, flavorId: String) {
                 "name": name,
                 "imageRef": imageId,
                 "flavorRef": flavorId,
-                "networks": [["uuid": "c1e00b30-fa2e-4aec-80ea-7c903f1c6717"]]
+                "networks": [["uuid": "0a4ef5ac-0638-451b-8dbb-ae5bda7ae5ba"]]
             ]
         ]
 
@@ -268,6 +268,47 @@ func stopServer(serverId: String) {
             // Convert results to a JSON object
             //let json = JSON(data: result)
 
+            }.resume()
+    }
+}
+
+func attachVolumeToServer(serverId: String, volumeId: String) {
+    getAuthToken { keystoneToken in
+        
+        let parameters:[String: Any] = ["volumeAttachment": [
+            "volumeId": volumeId,
+            ]
+        ]
+        
+        // Create Request
+        var novaReq = URLRequest(url: URL(string: "http://\(controller):\(novaport)/v2.1/\(tenantId)/servers/\(serverId)/os-volume_attachments")!)
+        novaReq.httpMethod = "POST"
+        
+        if JSONSerialization.isValidJSONObject(parameters) == false {
+            print("Invalid JSON")
+        }
+        
+        do {
+            novaReq.httpBody = try JSONSerialization.data(withJSONObject: parameters,
+                                                          options: JSONSerialization.WritingOptions())
+        } catch {
+            print("Could not create JSON body")
+        }
+        
+        novaReq.allHTTPHeaderFields = ["Content-Type": "application/json", "X-Auth-Token": "\(keystoneToken)"]
+        
+        let session = URLSession.shared
+        
+        // Perform Request
+        session.dataTask(with: novaReq) {result, res, err in
+            guard result != nil else {
+                print("No result")
+                return
+            }
+            
+            // Convert results to a JSON object
+            //let json = JSON(data: result)
+            
             }.resume()
     }
 }

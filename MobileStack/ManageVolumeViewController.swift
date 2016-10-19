@@ -34,7 +34,7 @@ class ManageVolumeViewController: UIViewController, UIPickerViewDelegate, UIPick
     // TODO: Attach volume to server
     @IBAction func attachVolumeButton(_ sender: AnyObject) {
         
-        attachVolume(volume: self.volumeId, server: self.serverId)
+        attachVolumeToServer(serverId: self.serverId, volumeId: self.volumeId)
         
         let alert = UIAlertController(title: "\(self.volumeName)", message: "Attaching Volume...", preferredStyle: UIAlertControllerStyle.alert)
         

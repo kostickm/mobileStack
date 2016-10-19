@@ -164,7 +164,7 @@ func deleteVolume(id: String) {
     }
 }
 
-func attachVolume(volume: String, server: String) {
+/*func attachVolume(volume: String, server: String) {
     getAuthToken { keystoneToken in
         
         let parameters:[String: Any] = ["os-attach": [
@@ -211,4 +211,4 @@ func attachVolume(volume: String, server: String) {
             
             }.resume()
     }
-}
+}*/
