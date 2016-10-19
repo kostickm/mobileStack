@@ -305,6 +305,12 @@ func attachVolumeToServer(serverId: String, volumeId: String) {
                 print("No result")
                 return
             }
+            print("Result")
+            print(result)
+            print("\nResponse")
+            print(res)
+            print("\nErr")
+            print(err)
             
             // Convert results to a JSON object
             //let json = JSON(data: result)

@@ -58,6 +58,7 @@ class ManageVolumeViewController: UIViewController, UIPickerViewDelegate, UIPick
             self.servers = servers
             DispatchQueue.main.async(execute: { () -> Void in
                 self.serverName = servers[0].name!
+                self.serverId = servers[0].id!
                 self.serverPickerView.delegate = self
                 self.serverPickerView.dataSource = self
             })
