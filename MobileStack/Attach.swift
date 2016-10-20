@@ -20,10 +20,12 @@ struct Attach {
     var id: String?
     var serverId: String?
     var volumeId: String?
+    var device: String?
     
-    init(id: String?, serverId: String?, volumeId: String?) {
+    init(id: String?, serverId: String?, volumeId: String?, device: String?) {
         self.id = id
         self.serverId = serverId
         self.volumeId = volumeId
+        self.device = device
     }
 }

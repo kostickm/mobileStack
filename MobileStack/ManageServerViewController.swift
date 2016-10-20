@@ -16,16 +16,19 @@
 
 import UIKit
 
-class ManageServerViewController: UIViewController {
+class ManageServerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     var serverName = ""
     var serverId = ""
     var serverStatus = ""
+    
+    var attachedVolumes = [Attach]()
 
     @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var labelId: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
 
-
+    @IBOutlet weak var attachmentPickerView: UIPickerView!
+    
     @IBAction func StartServer(_ sender: AnyObject) {
         startServer(serverId: self.serverId)
         // create the alert
@@ -69,7 +72,14 @@ class ManageServerViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        
+        listVolumeAttachments(serverId: serverId) { attachments in
+            DispatchQueue.main.async(execute: { () -> Void in
+                self.attachedVolumes = attachments
+                self.attachmentPickerView.delegate = self
+                self.attachmentPickerView.dataSource = self
+            })
+        }
         self.labelTitle.text = "\(serverName)"
         self.labelId.text = "\(serverId)"
         self.statusLabel.text = "\(serverStatus)"
@@ -79,6 +89,50 @@ class ManageServerViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // The number of columns of data
+    func numberOfComponents(in: UIPickerView) -> Int {
+        return 1
+    }
+    
+    // The number of rows of data
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent: Int) -> Int {
+        
+        return self.attachedVolumes.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        
+        var pickerLabel = view as? UILabel;
+        
+        if (pickerLabel == nil)
+        {
+            pickerLabel = UILabel()
+            
+            pickerLabel?.font = UIFont(name: "Helvetica", size: 12)
+            pickerLabel?.textAlignment = NSTextAlignment.center
+        }
+        
+        if pickerView == attachmentPickerView {
+            pickerLabel?.text = "\(attachedVolumes[row].device!) \(attachedVolumes[row].volumeId!)"
+            pickerLabel?.textColor = UIColor.white
+        }
+        
+        return pickerLabel!;
+        
+    }
+    
+    // Capture the picker view selection
+    /*func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        // This method is triggered whenever the user makes a change to the picker selection.
+        // The parameter named row and component represents what was selected.
+        /*if pickerView == imagePickerView {
+            self.imageId = images[row].id!
+        } else if pickerView == flavorPickerView {
+            self.flavorId = flavors[row].id!
+        }*/
+        
+    }*/
 
 
 

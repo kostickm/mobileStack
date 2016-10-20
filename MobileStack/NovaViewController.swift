@@ -334,13 +334,12 @@ func listVolumeAttachments(serverId: String, complete: @escaping ([Attach]) -> (
             
             // Convert results to a JSON object
             let json = JSON(data: result)
-            print(json)
             
             var attachmentList = [Attach]()
             
             if json["volumeAttachments"].exists() {
                 for (_, item) in json["volumeAttachments"] {
-                    let volumeInfo = Attach(id: item["id"].string!, serverId: item["serverId"].string!, volumeId: item["volumeId"].string!)
+                    let volumeInfo = Attach(id: item["id"].string!, serverId: item["serverId"].string!, volumeId: item["volumeId"].string!, device: item["device"].string!)
                     attachmentList.append(volumeInfo)
                 }
             }
@@ -350,31 +349,24 @@ func listVolumeAttachments(serverId: String, complete: @escaping ([Attach]) -> (
     }
 }
 
-func detachVolumeToServer(serverId: String, volumeId: String, attachments: [String]) {
+func detachVolumeToServer(serverId: String, volumeId: String, attachment: String) {
     getAuthToken { keystoneToken in
-        for (i, item) in attachments.enumerated() {
-            // Create Request
-            print(i)
-            print(item)
-            /*var novaReq = URLRequest(url: URL(string: "http://\(controller):\(novaport)/v2.1/\(tenantId)/servers/\(serverId)/os-volume_attachments/\(item)")!)
-            novaReq.httpMethod = "DELETE"
+        // Create Request
+        var novaReq = URLRequest(url: URL(string: "http://\(controller):\(novaport)/v2.1/\(tenantId)/servers/\(serverId)/os-volume_attachments/\(attachment)")!)
+        novaReq.httpMethod = "DELETE"
         
-            novaReq.allHTTPHeaderFields = ["Content-Type": "application/json", "X-Auth-Token": "\(keystoneToken)"]
+        novaReq.allHTTPHeaderFields = ["Content-Type": "application/json", "X-Auth-Token": "\(keystoneToken)"]
         
-            let session = URLSession.shared
+        let session = URLSession.shared
         
-            // Perform Request
-            session.dataTask(with: novaReq) {result, res, err in
-                guard result != nil else {
-                    print("No result")
-                    return
-                }
-            
-                // Convert results to a JSON object
-                //let json = JSON(data: result)
+        // Perform Request
+        session.dataTask(with: novaReq) {result, res, err in
+            guard result != nil else {
+                print("No result")
+                return
+            }
               
-                }.resume()*/
-        }
+        }.resume()
     }
 }
 

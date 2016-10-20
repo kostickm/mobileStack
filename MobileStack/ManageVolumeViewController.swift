@@ -47,11 +47,14 @@ class ManageVolumeViewController: UIViewController, UIPickerViewDelegate, UIPick
     
     @IBAction func detachVolumeButton(_ sender: AnyObject) {
         listVolumeAttachments(serverId: self.serverId) { attachmentList in
-            print(attachmentList)
             
             //TODO: Create loop over array of attachment IDs then attach the currently selected volumeId
             
-            //detachVolumeToServer(serverId: self.serverId, volumeId: self.volumeId, attachments: attachmentList)
+            for (_, item) in attachmentList.enumerated() {
+                if self.volumeId == item.volumeId {
+                    detachVolumeToServer(serverId: self.serverId, volumeId: self.volumeId, attachment: item.id!)
+                }
+            }
         }
         
         let alert = UIAlertController(title: "\(self.volumeName)", message: "Detaching Volume...", preferredStyle: UIAlertControllerStyle.alert)
@@ -116,7 +119,7 @@ class ManageVolumeViewController: UIViewController, UIPickerViewDelegate, UIPick
         {
             pickerLabel = UILabel()
             
-            pickerLabel?.font = UIFont(name: "Helvetica", size: 10)
+            pickerLabel?.font = UIFont(name: "Helvetica", size: 12)
             pickerLabel?.textAlignment = NSTextAlignment.center
         }
         
