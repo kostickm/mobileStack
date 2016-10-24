@@ -4,14 +4,17 @@ Monitor and manage your OpenStack cloud on the go!
 
 ## Current Features
 * Request Keystone Auth Token
+* View current servers, images, and volumes
 * Provision and delete virtual machines
 * Start, Stop, Restart virtual machines
 * Provision and delete volumes
-* View current servers, images, and volumes
+* Attach, detach a volume to virtual server
 
 ## Future Features
-* Attach volume to virtual server
-* View environment health status
+* User login
+* HA capabilities
+* Neutron support
+* Tenant and user administration support
 * And more!
 
 ## License
