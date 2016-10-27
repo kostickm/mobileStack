@@ -121,7 +121,7 @@ class ServerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         {
             pickerLabel = UILabel()
 
-            pickerLabel?.font = UIFont(name: "Helvetica", size: 10)
+            pickerLabel?.font = UIFont(name: "Helvetica", size: 17)
             pickerLabel?.textAlignment = NSTextAlignment.center
         }
 

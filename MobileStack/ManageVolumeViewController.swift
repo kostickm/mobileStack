@@ -119,7 +119,7 @@ class ManageVolumeViewController: UIViewController, UIPickerViewDelegate, UIPick
         {
             pickerLabel = UILabel()
             
-            pickerLabel?.font = UIFont(name: "Helvetica", size: 12)
+            pickerLabel?.font = UIFont(name: "Helvetica", size: 15)
             pickerLabel?.textAlignment = NSTextAlignment.center
         }
         
